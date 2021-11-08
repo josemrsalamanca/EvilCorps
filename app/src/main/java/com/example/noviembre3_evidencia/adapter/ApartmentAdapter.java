@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.CustomViewHolder> {
 
     private ArrayList<Apartment> deptos;
+    private OnClickListener listener;
 
     public ApartmentAdapter(ArrayList<Apartment> deptos) {
         this.deptos = deptos;
@@ -25,7 +26,7 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.Cust
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
-        return new CustomViewHolder(view);
+        return new CustomViewHolder(view,listener);
     }
 
     @Override
@@ -40,15 +41,29 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentAdapter.Cust
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
         private ItemLayoutBinding b;
-        public CustomViewHolder(@NonNull View itemView) {
+        private OnClickListener listener;
+        public CustomViewHolder(@NonNull View itemView,OnClickListener listener) {
             super(itemView);
             b = ItemLayoutBinding.bind(itemView);
+            this.listener = listener;
         }
 
         public void binData(Apartment apartment){
             b.tvEd.setText(apartment.getProjectName());
             b.tvDpto.setText(apartment.getUnitId());
             b.tvDirecc.setText(apartment.getAddress());
+            itemView.setOnClickListener(view -> {
+                listener.onApartmentClick(apartment);
+            });
         }
+    }
+
+    public interface OnClickListener{
+        void onApartmentClick(Apartment apartment);
+    }
+
+    public ApartmentAdapter setListener(OnClickListener listener) {
+        this.listener = listener;
+        return this;
     }
 }

@@ -10,10 +10,10 @@ import com.example.noviembre3_evidencia.model.ApartmentData;
 
 import java.util.ArrayList;
 
-public class HomeFragmentImpl implements HomePresenter {
+public class HomePresentertImpl implements HomePresenter {
     private HomeView view;
 
-    public HomeFragmentImpl(HomeView view) {
+    public HomePresentertImpl(HomeView view) {
         this.view = view;
     }
 

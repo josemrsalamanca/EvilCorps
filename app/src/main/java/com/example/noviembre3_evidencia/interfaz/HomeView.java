@@ -4,8 +4,10 @@ import android.os.Bundle;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.noviembre3_evidencia.adapter.ApartmentAdapter;
+
 public interface HomeView {
-    void llenarRecycler(RecyclerView.Adapter adapter);
+    void llenarRecycler(ApartmentAdapter adapter);
     void seleccionarItem(Bundle bundle);
 }
 

@@ -5,4 +5,12 @@
     <string name="email">Email</string>
     <string name="clave">Clave</string>
     <string name="ingresar">Ingresar</string>
+    <string name="cb_luces">Luces</string>
+    <string name="cb_dormitorio">Dormitorio</string>
+    <string name="cb_cocina">Cocina</string>
+    <string name="cb_bano">Baño</string>
+    <string name="rb_normal">Normal</string>
+    <string name="rb_regular">Regular</string>
+    <string name="rd_mala">Mala</string>
+    <string name="puntos">"Puntaje obtenido: "</string>
 </resources>
